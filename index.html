@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guillaume Gaillard - Développeur Full Stack</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section h2 i {
+            color: #667eea;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-category {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header {
+                padding: 2rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header animate-fadeIn">
+            <div class="profile-img">
+                <i class="fas fa-user"></i>
+            </div>
+            <h1>G.Gaillard</h1>
+            <p>Développeur Full Stack • Formateur • Pédagogie par la pratique</p>
+            
+        </header>
+
+        <!-- About Section -->
+        <section class="section animate-fadeIn">
+            <h2><i class="fas fa-user-circle"></i> À propos</h2>
+            <div class="about-content">
+                <p>Formateur et développeur passionné par l'enseignement des technologies web modernes. Je me spécialise dans la transmission 
+                   de connaissances sur un large éventail de langages et frameworks, en créant des <strong>projets rigoureusement documentés</strong> 
+                   qui servent de référence pédagogique.</p>
+                <p>Mon approche pédagogique privilégie l'apprentissage par la pratique, en guidant les étudiants dans la réalisation 
+                   d'applications réelles accompagnées de <strong>documentation détaillée, commentaires explicatifs et guides pas-à-pas</strong> 
+                   qui illustrent les bonnes pratiques du développement moderne.</p>
+                <p>Chaque projet que je développe inclut une <strong>architecture claire, des exemples concrets et une documentation complète</strong> 
+                   pour faciliter la compréhension et la réutilisation des concepts enseignés.</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section animate-fadeIn">
+            <h2><i class="fas fa-code"></i> Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Langages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">Rust</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">NoSQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks Backend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Symfony</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">CodeIgniter</span>
+                        <span class="skill-tag">CakePHP</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">NestJS</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">ASP.NET</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Flask</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend & Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">Svelte</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">Nuxt.js</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Material-UI</span>
+                        <span class="skill-tag">Ant Design</span>
+                        <span class="skill-tag">jQuery</span>
+                        <span class="skill-tag">SASS/SCSS</span>
+                        <span class="skill-tag">Less</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Bases de Données</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">SQLite</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">MariaDB</span>
+                        <span class="skill-tag">CouchDB</span>
+                        <span class="skill-tag">Elasticsearch</span>
+                        <span class="skill-tag">Firebase</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">GitLab CI</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Apache</span>
+                        <span class="skill-tag">Nginx</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Terraform</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Bibliothèques JavaScript</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Lodash</span>
+                        <span class="skill-tag">Moment.js</span>
+                        <span class="skill-tag">Day.js</span>
+                        <span class="skill-tag">Axios</span>
+                        <span class="skill-tag">Fetch API</span>
+                        <span class="skill-tag">Chart.js</span>
+                        <span class="skill-tag">D3.js</span>
+                        <span class="skill-tag">Three.js</span>
+                        <span class="skill-tag">Socket.io</span>
+                        <span class="skill-tag">Electron</span>
+                        <span class="skill-tag">Puppeteer</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Bibliothèques PHP</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Composer</span>
+                        <span class="skill-tag">Guzzle</span>
+                        <span class="skill-tag">PHPUnit</span>
+                        <span class="skill-tag">Monolog</span>
+                        <span class="skill-tag">Carbon</span>
+                        <span class="skill-tag">Faker</span>
+                        <span class="skill-tag">Intervention Image</span>
+                        <span class="skill-tag">Spatie</span>
+                        <span class="skill-tag">PhpSpreadsheet</span>
+                        <span class="skill-tag">Dompdf</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Outils & Testing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jest</span>
+                        <span class="skill-tag">Cypress</span>
+                        <span class="skill-tag">Selenium</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Insomnia</span>
+                        <span class="skill-tag">Webpack</span>
+                        <span class="skill-tag">Vite</span>
+                        <span class="skill-tag">Rollup</span>
+                        <span class="skill-tag">Babel</span>
+                        <span class="skill-tag">ESLint</span>
+                        <span class="skill-tag">Prettier</span>
+                        <span class="skill-tag">Swagger</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>API & Services</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">GraphQL</span>
+                        <span class="skill-tag">gRPC</span>
+                        <span class="skill-tag">WebSockets</span>
+                        <span class="skill-tag">OAuth</span>
+                        <span class="skill-tag">JWT</span>
+                        <span class="skill-tag">Stripe</span>
+                        <span class="skill-tag">PayPal</span>
+                        <span class="skill-tag">Twilio</span>
+                        <span class="skill-tag">SendGrid</span>
+                        <span class="skill-tag">Mailgun</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Effet de typing pour le titre
+        const title = document.querySelector('.header h1');
+        const text = title.textContent;
+        title.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                title.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+
+        setTimeout(typeWriter, 1000);
+    </script>
+</body>
+</html>
