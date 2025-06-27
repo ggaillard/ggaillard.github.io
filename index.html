@@ -49,6 +49,14 @@
             font-size: 4rem;
             color: white;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .header h1 {
@@ -64,31 +72,6 @@
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.7rem 1.5rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .social-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
 
         .section {
@@ -114,39 +97,271 @@
             color: #667eea;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+        /* Code Animation intégrée dans le header */
+        .header .code-block {
+            animation: codeFloat 6s ease-in-out infinite;
         }
 
-        .skill-category {
+        @keyframes codeFloat {
+            0%, 100% { transform: perspective(1000px) rotateY(-5deg) translateY(0); }
+            50% { transform: perspective(1000px) rotateY(-5deg) translateY(-10px); }
+        }
+
+        .header .code-block:hover {
+            transform: perspective(1000px) rotateY(-2deg);
+        }
+
+        .code-line {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .line-number {
+            color: #4a5568;
+            margin-right: 1.5rem;
+            width: 20px;
+            text-align: right;
+            user-select: none;
+        }
+
+        .keyword { color: #f472b6; }
+        .class-name { color: #60a5fa; }
+        .property { color: #fbbf24; }
+        .string { color: #34d399; }
+        .punctuation { color: #e2e8f0; }
+        .comment { color: #64748b; font-style: italic; }
+        .emoji { color: #f87171; }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
             background: rgba(102, 126, 234, 0.1);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 15px;
             border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
         }
 
-        .skill-category h3 {
-            color: #667eea;
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 1rem;
-            font-size: 1.2rem;
         }
 
-        .skill-tags {
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .project-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .project-description {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .skill-tag {
+        .tech-tag {
             background: #667eea;
             color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.9rem;
             font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #667eea;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+        }
+
+        /* Skills Section - Améliorée */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            backdrop-filter: blur(15px);
+            padding: 2.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .skill-category:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-category h3::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .skill-tag:hover::before {
+            left: 100%;
+        }
+
+        /* Animation d'apparition en cascade */
+        .skill-category {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .skill-category:nth-child(1) { animation-delay: 0.1s; }
+        .skill-category:nth-child(2) { animation-delay: 0.2s; }
+        .skill-category:nth-child(3) { animation-delay: 0.3s; }
+        .skill-category:nth-child(4) { animation-delay: 0.4s; }
+        .skill-category:nth-child(5) { animation-delay: 0.5s; }
+        .skill-category:nth-child(6) { animation-delay: 0.6s; }
+        .skill-category:nth-child(7) { animation-delay: 0.7s; }
+        .skill-category:nth-child(8) { animation-delay: 0.8s; }
+        .skill-category:nth-child(9) { animation-delay: 0.9s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .about-content {
@@ -163,6 +378,12 @@
             .header {
                 padding: 2rem;
             }
+
+            .header > div {
+                grid-template-columns: 1fr !important;
+                text-align: center !important;
+                gap: 2rem !important;
+            }
             
             .header h1 {
                 font-size: 2rem;
@@ -171,10 +392,29 @@
             .section {
                 padding: 1.5rem;
             }
-            
-            .social-links {
-                flex-direction: column;
-                align-items: center;
+
+            .header .code-block {
+                transform: none !important;
+                font-size: 0.8rem;
+                animation: none !important;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skill-category {
+                padding: 2rem;
+            }
+
+            .skill-tag {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -192,15 +432,66 @@
     <div class="container">
         <!-- Header Section -->
         <header class="header animate-fadeIn">
-             <div class="profile-img">
-                <!-- Avatar GitHub automatique -->
-                <img src="https://github.com/ggaillard.png" alt="Guillaume Gaillard" id="avatar-img">
-                <i class="fas fa-user" id="default-icon" style="display: none;"></i>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; text-align: left;">
+                <!-- Partie gauche - Profil -->
+                <div>
+                    <div class="profile-img" style="margin: 0 0 2rem 0;">
+                        <img src="https://github.com/ggaillard.png" alt="Gilles Gaillard" id="avatar-img">
+                        <i class="fas fa-user" id="default-icon" style="display: none;"></i>
+                    </div>
+                    <h1>G.Gaillard</h1>
+                    <p>Développeur Full Stack • Formateur • Pédagogie par la pratique</p>
+                </div>
+
+                <!-- Partie droite - Code Animation -->
+                <div style="display: flex; justify-content: center;">
+                    <div class="code-block" style="background: #2d3748; border-radius: 12px; padding: 1.5rem; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); border: 1px solid #4a5568; width: 100%; max-width: 400px; transform: perspective(1000px) rotateY(-5deg);">
+                        <div class="code-line">
+                            <span class="line-number">1</span>
+                            <span><span class="keyword">class</span> <span class="class-name">InnovationPedagogique</span><span class="punctuation">{</span></span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">2</span>
+                            <span>&nbsp;&nbsp;<span class="keyword">constructor</span><span class="punctuation">() {</span></span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">3</span>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span><span class="punctuation">.</span><span class="property">expertise</span><span class="punctuation">= [</span></span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">4</span>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'IA Éducative'</span><span class="punctuation">,</span></span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">5</span>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Full Stack'</span><span class="punctuation">,</span></span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">6</span>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Formation'</span></span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">7</span>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="punctuation">];</span></span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">8</span>
+                            <span>&nbsp;&nbsp;<span class="punctuation">}</span></span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">9</span>
+                            <span><span class="punctuation">}</span></span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">10</span>
+                            <span><span class="comment">// Transformer l'éducation </span><span class="emoji">🚀</span></span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1>G.Gaillard</h1>
-            <p>Développeur Full Stack • Formateur • Pédagogie par la pratique</p>
-            
         </header>
+
+        <!-- Code Animation Section supprimée car intégrée dans le header -->
 
         <!-- About Section -->
         <section class="section animate-fadeIn">
@@ -214,6 +505,185 @@
                    qui illustrent les bonnes pratiques du développement moderne.</p>
                 <p>Chaque projet que je développe inclut une <strong>architecture claire, des exemples concrets et une documentation complète</strong> 
                    pour faciliter la compréhension et la réutilisation des concepts enseignés.</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section animate-fadeIn">
+            <h2><i class="fas fa-code"></i> Mes Projets</h2>
+            <div class="projects-grid">
+                
+                <!-- MCP Server Client Demo -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <span class="project-status">Récent</span>
+                    </div>
+                    <h3 class="project-title">MCP Server Client Demo</h3>
+                    <p class="project-description">
+                        Démonstration d'implémentation d'un serveur et client MCP (Model Context Protocol). 
+                        Projet technique explorant les protocoles de communication modernes.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">MCP</span>
+                        <span class="tech-tag">Protocol</span>
+                        <span class="tech-tag">Demo</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ggaillard/mcp-server-client-demo" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Voir sur GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Portfolio actuel -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <span class="project-status">Portfolio</span>
+                    </div>
+                    <h3 class="project-title">Portfolio Personnel</h3>
+                    <p class="project-description">
+                        Portfolio web personnel utilisant HTML, CSS et JavaScript. Démontre les techniques 
+                        modernes de développement front-end avec animations et design responsive.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ggaillard/ggaillard.github.io" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code source
+                        </a>
+                        <a href="https://ggaillard.github.io" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Voir en ligne
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projet IA BTS SIO -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <span class="project-status">Pédagogique</span>
+                    </div>
+                    <h3 class="project-title">Projet IA BTS SIO</h3>
+                    <p class="project-description">
+                        Projet pédagogique d'introduction à l'Intelligence Artificielle pour les étudiants BTS SIO. 
+                        Ressources et exemples pratiques pour découvrir l'IA.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">IA</span>
+                        <span class="tech-tag">BTS SIO</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ggaillard/Projet_IA_BTS-SIO" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code source
+                        </a>
+                        <a href="https://ggaillard.github.io/Projet_IA_BTS-SIO" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Voir en ligne
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Atelier Deep Learning -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <span class="project-status">Formation</span>
+                    </div>
+                    <h3 class="project-title">Atelier Deep Learning</h3>
+                    <p class="project-description">
+                        Atelier de formation au Deep Learning avec exemples pratiques et exercices. 
+                        Ressources pédagogiques pour comprendre les réseaux de neurones profonds.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">ML</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ggaillard/Atelier-deeplearning" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Repository
+                        </a>
+                        <a href="https://ggaillard.github.io/Atelier-deeplearning" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Accéder à l'atelier
+                        </a>
+                    </div>
+                </div>
+
+                <!-- BTS SIO EDC SLAM Révisions -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <span class="project-status">Révisions</span>
+                    </div>
+                    <h3 class="project-title">BTS SIO EDC SLAM Révisions</h3>
+                    <p class="project-description">
+                        Ressources de révision pour l'épreuve E4 - Conception et développement d'applications du BTS SIO. 
+                        Supports pédagogiques et exercices pratiques.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">BTS SIO</span>
+                        <span class="tech-tag">EDC</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ggaillard/BTS_SIO_EDC_SLAM_revisions" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Repository
+                        </a>
+                        <a href="https://ggaillard.github.io/BTS_SIO_EDC_SLAM_revisions/" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Accéder aux révisions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AI Learning Game -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <span class="project-status">Jeu IA</span>
+                    </div>
+                    <h3 class="project-title">AI Learning Game</h3>
+                    <p class="project-description">
+                        Jeu éducatif utilisant l'intelligence artificielle pour l'apprentissage. 
+                        Développé en Python avec licence GNU AGPL v3.0.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">AI</span>
+                        <span class="tech-tag">Game</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ggaillard/ai_learning_game" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code source
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -259,160 +729,4 @@
                         <span class="skill-tag">Angular</span>
                         <span class="skill-tag">React</span>
                         <span class="skill-tag">Vue.js</span>
-                        <span class="skill-tag">Svelte</span>
-                        <span class="skill-tag">Next.js</span>
-                        <span class="skill-tag">Nuxt.js</span>
-                        <span class="skill-tag">Bootstrap</span>
-                        <span class="skill-tag">Tailwind CSS</span>
-                        <span class="skill-tag">Material-UI</span>
-                        <span class="skill-tag">Ant Design</span>
-                        <span class="skill-tag">jQuery</span>
-                        <span class="skill-tag">SASS/SCSS</span>
-                        <span class="skill-tag">Less</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Bases de Données</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">SQLite</span>
-                        <span class="skill-tag">Redis</span>
-                        <span class="skill-tag">Oracle</span>
-                        <span class="skill-tag">MariaDB</span>
-                        <span class="skill-tag">CouchDB</span>
-                        <span class="skill-tag">Elasticsearch</span>
-                        <span class="skill-tag">Firebase</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>DevOps & Cloud</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub Actions</span>
-                        <span class="skill-tag">GitLab CI</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Apache</span>
-                        <span class="skill-tag">Nginx</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Azure</span>
-                        <span class="skill-tag">Google Cloud</span>
-                        <span class="skill-tag">Terraform</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Bibliothèques JavaScript</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Lodash</span>
-                        <span class="skill-tag">Moment.js</span>
-                        <span class="skill-tag">Day.js</span>
-                        <span class="skill-tag">Axios</span>
-                        <span class="skill-tag">Fetch API</span>
-                        <span class="skill-tag">Chart.js</span>
-                        <span class="skill-tag">D3.js</span>
-                        <span class="skill-tag">Three.js</span>
-                        <span class="skill-tag">Socket.io</span>
-                        <span class="skill-tag">Electron</span>
-                        <span class="skill-tag">Puppeteer</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Bibliothèques PHP</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Composer</span>
-                        <span class="skill-tag">Guzzle</span>
-                        <span class="skill-tag">PHPUnit</span>
-                        <span class="skill-tag">Monolog</span>
-                        <span class="skill-tag">Carbon</span>
-                        <span class="skill-tag">Faker</span>
-                        <span class="skill-tag">Intervention Image</span>
-                        <span class="skill-tag">Spatie</span>
-                        <span class="skill-tag">PhpSpreadsheet</span>
-                        <span class="skill-tag">Dompdf</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Outils & Testing</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Jest</span>
-                        <span class="skill-tag">Cypress</span>
-                        <span class="skill-tag">Selenium</span>
-                        <span class="skill-tag">SonarQube</span>
-                        <span class="skill-tag">SonarCloud</span>
-                         <span class="skill-tag">MkDocs</span>
-                        <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">Insomnia</span>
-                        <span class="skill-tag">Webpack</span>
-                        <span class="skill-tag">Vite</span>
-                        <span class="skill-tag">Rollup</span>
-                        <span class="skill-tag">Babel</span>
-                        <span class="skill-tag">ESLint</span>
-                        <span class="skill-tag">Prettier</span>
-                        <span class="skill-tag">Swagger</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>API & Services</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">REST API</span>
-                        <span class="skill-tag">GraphQL</span>
-                        <span class="skill-tag">gRPC</span>
-                        <span class="skill-tag">WebSockets</span>
-                        <span class="skill-tag">OAuth</span>
-                        <span class="skill-tag">JWT</span>
-                        <span class="skill-tag">Stripe</span>
-                        <span class="skill-tag">PayPal</span>
-                        <span class="skill-tag">Twilio</span>
-                        <span class="skill-tag">SendGrid</span>
-                        <span class="skill-tag">Mailgun</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <script>
-        // Animation au scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'all 0.6s ease';
-            observer.observe(section);
-        });
-
-        // Effet de typing pour le titre
-        const title = document.querySelector('.header h1');
-        const text = title.textContent;
-        title.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                title.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-
-        setTimeout(typeWriter, 1000);
-    </script>
-</body>
-</html>
+                
